@@ -48,3 +48,33 @@ How to model it?
 1 + 2 * 3
 with  polymorphism
 
+Summary
+A polymorphic solution is often better because:
+* new behavior can be added without having the original source code, and
+* each operation/concern is separated in a separate file which makes it easy to test/understand
+Prefer polymorphism over conditionals:
+* switch almost always means you should use polymorphism
+* if is more subtle... sometimes an if is just an if
+
+Repeated Condition
+
+Benefits
+Conditional is localized in one place
+No more duplication
+Separation of responsibilities, and global state
+
+Overall summary
+Common code is in one location
+Testing independently easily, and in parallel
+Looking at the subclasses makes it clear what the differences are
+
+When to use polymorphism
+* Behavior changes based on state
+* Parallel conditionals are in multiple places in code
+
+When to use polymorphism
+Behavior changes based on state
+Parallel conditionals are in multiple places in code.
+
+Be pragmatic
+You will still have some conditionals
