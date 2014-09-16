@@ -1,0 +1,50 @@
+Conditionals and Polymorphism
+
+Premise: Most ifs can be replaced by polymorphism
+
+Why?
+Functions without ifs are easier to read
+Functions without ifs are easier to test
+Polymorpihc systems are easier to maintain
+
+Use polymorphism
+If an object should behave differently based on its state
+If you have to check the same condition in multiple places
+
+Use conditionals
+Mainly to do comparisons of primitive objects: >,<.==,!=
+There other uses, but today we focus on avoiding if
+
+To be if free
+Never return a null, instead return a Null Object, e.g. an empty list
+Don't return error codes, instead throw an Exception (RunTime please!)
+
+Rampant subclassing
+Polymorphism uses subclassing
+Be careful about runaway  subclassing(another talk focuses on that)
+
+State Base Behavior:
+      Replease conditional with polymorphism
+      You have a conditional that chooses different behavior depending on the type of an object.
+      Move each leg of the conditional to an overrideing method ina subclass. Make the original method abstract.
+
+double getSpeed() {
+       switch (_type) {
+       	      
+	      case EUROPEAN:
+	      	   return getBaseSpeed();
+
+	      case AFRICAN:
+	      	   return getBaseSpeed() - getLoadFactor() * _numberOfCoconuts;
+
+	      case NORWEGIAN_BLUE:
+	      	   return (_isNailed) ? 0 : getBaseSpeed(_voltage);
+
+       }
+       throw new RuntimeException("Should be unreachable");
+}
+
+How to model it?
+1 + 2 * 3
+with  polymorphism
+
